@@ -47,6 +47,7 @@ dataset:
 validation:
   item_response_values: [0, 1, 2, 3]
   duplicate_rule: "participant_id"
+  maximum_duplicate_count: 0
   require_complete_item_responses: true
 
 scales:
@@ -84,6 +85,7 @@ analysis:
   chi_square:
     min_expected_cell_count: 5
     max_fraction_expected_below_min: 0.20
+    minimum_expected_cell_allowed: 1
   effect_size:
     illustrative_reporting_signal_threshold: 0.25
     note: "Operational reporting threshold only; not a clinical or universal management cut-off."

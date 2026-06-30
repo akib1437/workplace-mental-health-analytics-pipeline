@@ -17,6 +17,7 @@ dataset:
 validation:
   item_response_values: [0, 1, 2, 3]
   duplicate_rule: "full_row"
+  maximum_duplicate_count: 0
   require_complete_item_responses: true
 
 scales:
@@ -27,11 +28,11 @@ scales:
     severity_column: "phq9_severity_calculated"
     moderate_or_higher_column: "phq9_moderate_or_higher"
     thresholds:
-      - {upper_inclusive: 4, label: "Minimal"}
-      - {upper_inclusive: 9, label: "Mild"}
-      - {upper_inclusive: 14, label: "Moderate"}
-      - {upper_inclusive: 19, label: "Moderately Severe"}
-      - {upper_inclusive: 27, label: "Severe"}
+      - { upper_inclusive: 4, label: "Minimal" }
+      - { upper_inclusive: 9, label: "Mild" }
+      - { upper_inclusive: 14, label: "Moderate" }
+      - { upper_inclusive: 19, label: "Moderately Severe" }
+      - { upper_inclusive: 27, label: "Severe" }
     moderate_or_higher_score: 10
     expected_alpha: 0.9192933860
     expected_moderate_or_higher_pct: 23.6453201970
@@ -43,10 +44,10 @@ scales:
     severity_column: "gad7_severity_calculated"
     moderate_or_higher_column: "gad7_moderate_or_higher"
     thresholds:
-      - {upper_inclusive: 4, label: "Minimal"}
-      - {upper_inclusive: 9, label: "Mild"}
-      - {upper_inclusive: 14, label: "Moderate"}
-      - {upper_inclusive: 21, label: "Severe"}
+      - { upper_inclusive: 4, label: "Minimal" }
+      - { upper_inclusive: 9, label: "Mild" }
+      - { upper_inclusive: 14, label: "Moderate" }
+      - { upper_inclusive: 21, label: "Severe" }
     moderate_or_higher_score: 10
     expected_alpha: 0.9230573096
     expected_moderate_or_higher_pct: 19.7044334975
@@ -68,6 +69,7 @@ analysis:
   chi_square:
     min_expected_cell_count: 5
     max_fraction_expected_below_min: 0.20
+    minimum_expected_cell_allowed: 1
   effect_size:
     illustrative_reporting_signal_threshold: 0.25
     note: "Operational reporting threshold only; not a clinical or universal management cut-off."
