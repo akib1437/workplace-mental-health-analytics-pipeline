@@ -73,6 +73,9 @@ analysis:
   effect_size:
     illustrative_reporting_signal_threshold: 0.25
     note: "Operational reporting threshold only; not a clinical or universal management cut-off."
+  sensitivity:
+    disclosure_minimum_cell_counts: [3, 5, 10]
+    illustrative_reporting_signal_thresholds: [0.20, 0.25, 0.30]
 
 disclosure_control:
   minimum_cell_count: 5
