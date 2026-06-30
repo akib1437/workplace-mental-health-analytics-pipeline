@@ -117,7 +117,7 @@ def write_run_manifest(
             "python_version": platform.python_version(),
             "python_implementation": platform.python_implementation(),
             "platform": platform.platform(),
-            "executable": sys.executable,
+            "python_executable": Path(sys.executable).name,
             "package_versions": package_versions(),
         },
         "input": {
