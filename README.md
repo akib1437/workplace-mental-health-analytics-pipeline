@@ -82,3 +82,8 @@ Run the automated failure-mode tests before creating a release:
 python -m pytest -q
 
 
+## Run provenance manifest
+
+Each completed pipeline execution writes a `run_manifest.json` file to the relevant output directory.
+
+The manifest records the Git commit hash, configuration filename and SHA-256 hash, Python and package versions, input record count, execution timestamp, reporting boundary, and SHA-256 hashes for generated aggregate outputs. It does not contain respondent-level records or private survey responses.

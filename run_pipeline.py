@@ -10,6 +10,7 @@ import yaml
 from src.adapters import load_dataset
 from src.analyse_subgroups import analyse_subgroups
 from src.generate_report import generate_outputs
+from src.provenance import write_run_manifest
 from src.score_scales import score_scales
 from src.validate_schema import normalize_item_columns, validate_schema
 
@@ -118,7 +119,14 @@ def main() -> None:
         disclosure_log,
         verification,
     )
+    manifest_path = write_run_manifest(
+        output_dir=output_dir,
+        config_path=config_path,
+        config=config,
+        schema_log=schema_log,
+    )
     print(f"Pipeline completed. Aggregate outputs written to: {output_dir.resolve()}")
+    print(f"Run manifest written to: {manifest_path.resolve()}")
     print(verification.to_string(index=False))
 
 
