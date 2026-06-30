@@ -1,0 +1,19 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as described below."
+title: "A Configurable, Disclosure-Controlled Computational Pipeline for Aggregate Workplace Mental-Health Survey Analytics"
+type: software
+authors:
+  - family-names: Tanzim
+    given-names: Akib
+  - family-names: Helal
+    given-names: Ramisha Binte
+  - family-names: Sabbir
+    given-names: Asekuzzaman
+  - family-names: Kauji
+    given-names: Bamusami Wakil
+  - family-names: Ahmed
+    given-names: Nyme
+repository-code: "https://github.com/akib1437/workplace-mental-health-analytics-pipeline"
+license: MIT
+version: 1.0.0
+date-released: 2026-07-01
