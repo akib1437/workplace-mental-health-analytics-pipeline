@@ -72,3 +72,13 @@ Never report a subgroup p-value where `chi_square_reportable` is `False`.
 Commit: source code, YAML configuration, README, requirements, notebooks, generated aggregate outputs, and documentation.
 
 Do not commit: original workplace data, any respondent-level export, `.venv/`, or local caches.
+
+
+## Automated safeguard tests
+
+Run the automated failure-mode tests before creating a release:
+
+```powershell
+python -m pytest -q
+
+
