@@ -1,0 +1,16 @@
+# Virtual environment and Python cache
+.venv/
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+
+# Never publish participant-level data
+data/private/*
+!data/private/README.md
+
+data/external_raw/*
+!data/external_raw/README.md
+
+# Generated local artefacts
+outputs/*
+!outputs/README.md

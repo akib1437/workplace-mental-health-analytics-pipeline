@@ -1,0 +1,100 @@
+# Complete this template after inspecting the downloaded Zenodo CSV headers.
+# The core scoring, validation, reliability, subgroup, and disclosure modules must remain unchanged.
+# Change only: file paths, shared identifier, source-column mapping, expected row count if necessary,
+# and eligible subgroup fields that actually exist in the public data.
+
+project:
+  name: "Independent technical portability demonstration"
+  report_boundary: "Aggregate-only reporting. Student data demonstrate technical portability, not workplace replication."
+
+dataset:
+  name: "Su et al. public PHQ-9/GAD-7 dataset"
+  format: "multi_csv"
+  expected_rows: 24292
+  files:
+    demographics:
+      path: "data/external_raw/demographic.csv"
+      format: "csv"
+    phq9:
+      path: "data/external_raw/phq9.csv"
+      format: "csv"
+    gad7:
+      path: "data/external_raw/gad7.csv"
+      format: "csv"
+  join:
+    base_table: "demographics"
+    participant_id: "REPLACE_AFTER_HEADER_INSPECTION"
+    how: "inner"
+  field_mapping:
+    # Generic field : exact original CSV header. Keep generic names at left.
+    phq1: "REPLACE"
+    phq2: "REPLACE"
+    phq3: "REPLACE"
+    phq4: "REPLACE"
+    phq5: "REPLACE"
+    phq6: "REPLACE"
+    phq7: "REPLACE"
+    phq8: "REPLACE"
+    phq9: "REPLACE"
+    gad1: "REPLACE"
+    gad2: "REPLACE"
+    gad3: "REPLACE"
+    gad4: "REPLACE"
+    gad5: "REPLACE"
+    gad6: "REPLACE"
+    gad7: "REPLACE"
+  source_severity_columns: {}
+
+validation:
+  item_response_values: [0, 1, 2, 3]
+  duplicate_rule: "participant_id"
+  require_complete_item_responses: true
+
+scales:
+  phq9:
+    display_name: "PHQ-9"
+    item_columns: [phq1, phq2, phq3, phq4, phq5, phq6, phq7, phq8, phq9]
+    score_column: "phq9_total"
+    severity_column: "phq9_severity_calculated"
+    moderate_or_higher_column: "phq9_moderate_or_higher"
+    thresholds:
+      - {upper_inclusive: 4, label: "Minimal"}
+      - {upper_inclusive: 9, label: "Mild"}
+      - {upper_inclusive: 14, label: "Moderate"}
+      - {upper_inclusive: 19, label: "Moderately Severe"}
+      - {upper_inclusive: 27, label: "Severe"}
+    moderate_or_higher_score: 10
+
+  gad7:
+    display_name: "GAD-7"
+    item_columns: [gad1, gad2, gad3, gad4, gad5, gad6, gad7]
+    score_column: "gad7_total"
+    severity_column: "gad7_severity_calculated"
+    moderate_or_higher_column: "gad7_moderate_or_higher"
+    thresholds:
+      - {upper_inclusive: 4, label: "Minimal"}
+      - {upper_inclusive: 9, label: "Mild"}
+      - {upper_inclusive: 14, label: "Moderate"}
+      - {upper_inclusive: 21, label: "Severe"}
+    moderate_or_higher_score: 10
+
+analysis:
+  # Leave empty first. After inspecting the headers, add only mapped public fields such as gender or age band.
+  subgroup_columns: []
+  fdr_method: "fdr_bh"
+  fdr_alpha: 0.05
+  chi_square:
+    min_expected_cell_count: 5
+    max_fraction_expected_below_min: 0.20
+  effect_size:
+    illustrative_reporting_signal_threshold: 0.25
+    note: "Operational reporting threshold only; not a clinical or universal management cut-off."
+
+disclosure_control:
+  minimum_cell_count: 5
+  action: "suppress_small_cells"
+  text_for_suppressed_cell: "Suppressed (<5)"
+  disclose_row_level_data: false
+
+outputs:
+  directory: "outputs/zenodo"
