@@ -80,7 +80,17 @@ Run the automated failure-mode tests before creating a release:
 
 ```powershell
 python -m pytest -q
+```
 
+## Sensitivity analysis
+
+Run the configuration-driven sensitivity analysis from the project root:
+
+```powershell
+python -m scripts.run_sensitivity_analysis --config config/workplace_config.yaml
+```
+
+Sensitivity outputs are written to `outputs/sensitivity/`.
 
 ## Run provenance manifest
 
