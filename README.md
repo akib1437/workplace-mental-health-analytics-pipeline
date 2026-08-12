@@ -8,7 +8,7 @@ This artefact produces aggregate outputs only. It is not a diagnostic system, a 
 
 ## What is intentionally excluded
 
-The prior ML models, saved model files, prediction accuracy, confusion matrices, and model-training notebooks are **not part of this JSCDM artefact**. This paper should not claim disease prediction or ML novelty.
+The prior ML models, saved model files, prediction accuracy, confusion matrices, and model-training notebooks are **not part of the present computational artefact.**. This paper should not claim disease prediction or ML novelty.
 
 ## 1. Setup
 
